@@ -1,70 +1,76 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>غزالة أميرتي ❤️</title>
 <style>
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  font-family: sans-serif;
-  color: white;
-  background: linear-gradient(135deg, #ff758c, #ff7eb3, #c850c0);
-  overflow: hidden;
+*{box-sizing:border-box}
+body{
+ margin:0;min-height:100vh;
+ display:flex;align-items:center;justify-content:center;
+ overflow:hidden;text-align:center;
+ font-family:Arial,sans-serif;color:white;
+ background:linear-gradient(135deg,#ff5b91,#b52b72,#641b66);
 }
-.card {
-  background: #ffffff25;
-  padding: 30px 22px;
-  margin: 20px;
-  border-radius: 25px;
-  box-shadow: 0 8px 30px #0002;
+.card{padding:25px;width:92%;max-width:430px;z-index:2}
+h1{font-size:30px}
+p{font-size:21px;line-height:1.9}
+button{
+ border:0;border-radius:30px;padding:15px 25px;
+ font-size:19px;color:#d92c72;background:#fff;
+ cursor:pointer;margin-top:15px;
+ box-shadow:0 5px 20px #6b164d55;
 }
-h1 { font-size: 30px; }
-p { font-size: 21px; line-height: 1.9; }
-button {
-  background: white;
-  color: #e84393;
-  border: 0;
-  border-radius: 30px;
-  padding: 14px 24px;
-  font-size: 18px;
-  font-weight: bold;
+#second{display:none}
+.heart{
+ position:fixed;bottom:-40px;
+ animation:rise linear forwards;pointer-events:none;
 }
-.heart {
-  position: fixed;
-  bottom: -30px;
-  animation: fly 6s linear infinite;
-  pointer-events: none;
-}
-@keyframes fly {
-  to { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+@keyframes rise{
+ to{transform:translateY(-115vh) rotate(360deg);opacity:0}
 }
 </style>
 </head>
 <body>
-<div class="card">
-  <h1>هلو ببرنامج عبدالله ❤️</h1>
-  <p>أحبج يا أغلى إنسانة عندي<br>
-  غزالة أميرتي 🌹</p>
-  <button onclick="alert('إنتِ أحلى شي بحياتي يا غزالة 💖')">
-    اضغطي هنا يا أميرتي 💗
-  </button>
+<div class="card" id="first">
+<h1>💗 هلو ببرنامج عبدالله 💗</h1>
+<p>أحبج يا أغلى إنسانة عندي<br>
+غزالة أميرتي 🌹❤️</p>
+<button onclick="openLove()">اضغطي هنا يا أميرتي 💖</button>
 </div>
+
+<div class="card" id="second">
+<h1>💖 غزالة أميرتي 💖</h1>
+<p>
+انتي أحلى شي بحياتي يا غزاله 🥹❤️<br>
+مو بس حبيبتي انتي فرحتي وأحلى صدفة صارت بحياتي<br>
+وكلبي اختارج من بين كل الناس 💗🌹<br>
+أتمنى تبقين دوم مبتسمة وسعيدة يا أحلى غزالة بالدنيا 💍💕
+</p>
+<div style="font-size:42px">❤️ 💗 💖</div>
+</div>
+
 <script>
-setInterval(() => {
-  const h = document.createElement('div');
-  h.className = 'heart';
-  h.textContent = ['❤️','💗','💕','💖'][Math.floor(Math.random()*4)];
-  h.style.left = Math.random()*100 + 'vw';
-  h.style.fontSize = (20 + Math.random()*25) + 'px';
-  document.body.appendChild(h);
-  setTimeout(() => h.remove(), 6000);
-}, 400);
+function openLove(){
+ document.getElementById('first').style.display='none';
+ document.getElementById('second').style.display='block';
+ for(let i=0;i<45;i++){
+  setTimeout(createHeart,i*100);
+ }
+}
+function createHeart(){
+ const h=document.createElement('div');
+ h.className='heart';
+ h.textContent=['❤️','💗','💕','💖','💘'][Math.floor(Math.random()*5)];
+ h.style.left=Math.random()*100+'vw';
+ h.style.fontSize=(18+Math.random()*25)+'px';
+ h.style.animationDuration=(3+Math.random()*4)+'s';
+ document.body.appendChild(h);
+ setTimeout(()=>h.remove(),7500);
+}
+setInterval(createHeart,650);
 </script>
 </body>
 </html>
